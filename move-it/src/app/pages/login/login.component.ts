@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DefaultLayoutComponent } from 'src/app/components/default-layout/default-layout.component';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +8,14 @@ import { DefaultLayoutComponent } from 'src/app/components/default-layout/defaul
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm: FormGroup
+
+  constructor() {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+    });
+  }
 
   ngOnInit(): void {
   }
