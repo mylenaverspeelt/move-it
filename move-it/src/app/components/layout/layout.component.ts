@@ -12,6 +12,7 @@ export class LayoutComponent implements OnInit {
   @Input() primaryBtnText: string = ""
   @Input() secondaryBtnText: string = ""
   @Output("submit") onSubmit = new EventEmitter()
+  @Output("navigate") onNavigate = new EventEmitter()
 
   constructor() { }
 
@@ -21,5 +22,9 @@ export class LayoutComponent implements OnInit {
   submit() {
     this.onSubmit.emit()
   }
+
+  navigate() {
+    this.onNavigate.emit()
+  } 
 
 }
