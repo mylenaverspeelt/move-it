@@ -1,4 +1,4 @@
-<app-layout title="Boas vindas! Realize o seu login" primaryBtnText="Fazer Login" secondaryBtnText="Faça o seu cadastro" (submit)="submit()" (navigate)="navigate()">
+<app-layout title="Boas vindas! Realize o seu login" primaryBtnText="Fazer Login" secondaryBtnText="Faça o seu cadastro" (submit)="submit()" (navigate)="navigate()" [disablePrimaryBtn]="!loginForm.valid">
     <form [formGroup]="loginForm">
         <app-input inputName="email" label="Email" type="email" placeholder="email@email.com"
             formControlName="email">

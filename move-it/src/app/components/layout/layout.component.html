@@ -5,7 +5,7 @@
         <!-- todo o conteúdo que tiver dentro da tag app-default-layout será injetado no ng-content -->
         <ng-content></ng-content>
         <div class="btn-wrapper">
-            <button class="primary-btn" (click)="submit()">{{ primaryBtnText }}</button>
+            <button class="primary-btn" (click)="submit()" [disabled]="disablePrimaryBtn">{{ primaryBtnText }}</button>
             <div class="divider">
                 <div></div>
                 <span>OU</span>
