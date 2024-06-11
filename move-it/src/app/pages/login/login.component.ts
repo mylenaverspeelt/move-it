@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup
+  loginForm!: FormGroup;
 
   constructor() {
     this.loginForm = new FormGroup({
@@ -18,6 +18,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  submit() {
+    console.log(this.loginForm.value);
   }
 
 }

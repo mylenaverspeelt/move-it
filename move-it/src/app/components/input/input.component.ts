@@ -34,11 +34,10 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   writeValue(value: any): void {
     this.value = value
   }
-
   registerOnChange(fn: any): void {
-    this.onChange
+    this.onChange = fn;
   }
-
+  
   registerOnTouched(fn: any): void {
     this.onTouched = fn
   }

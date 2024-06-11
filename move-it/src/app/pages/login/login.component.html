@@ -1,4 +1,4 @@
-<app-layout title="Boas vindas! Realize o seu login" primaryBtnText="Fazer Login" secondaryBtnText="Faça o seu cadastro">
+<app-layout title="Boas vindas! Realize o seu login" primaryBtnText="Fazer Login" secondaryBtnText="Faça o seu cadastro" (submit)="submit()">
     <form [formGroup]="loginForm">
         <app-input inputName="email" label="Email" type="email" placeholder="email@email.com"
             formControlName="email">
@@ -10,5 +10,6 @@
         </app-input>
 
         <span>Esqueceu sua senha?</span>
+        
     </form>
 </app-layout>

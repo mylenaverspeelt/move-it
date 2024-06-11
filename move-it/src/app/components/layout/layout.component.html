@@ -2,10 +2,10 @@
     <section class="form-section">
         <img src="/assets/svg/logo.svg" alt="Logo MoveIt">
         <h2>{{ title }}</h2>
-        <!-- tudo que tiver dentro da tag app-default-layout será injetado no ng-content -->
+        <!-- todo o conteúdo que tiver dentro da tag app-default-layout será injetado no ng-content -->
         <ng-content></ng-content>
         <div class="btn-wrapper">
-            <button class="primary-btn">{{ primaryBtnText }}</button>
+            <button class="primary-btn" (click)="submit()">{{ primaryBtnText }}</button>
             <div class="divider">
                 <div></div>
                 <span>OU</span>

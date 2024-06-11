@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-layout',
@@ -7,13 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-@Input() title: string = ""
-@Input() primaryBtnText: string = ""
-@Input() secondaryBtnText: string = ""
+  @Input() title: string = ""
+  @Input() primaryBtnText: string = ""
+  @Input() secondaryBtnText: string = ""
+  @Output("submit") onSubmit = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submit() {
+    this.onSubmit.emit()
   }
 
 }
