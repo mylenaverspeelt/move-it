@@ -4,25 +4,29 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2'
 
-interface LoginForm {
-  email: FormControl;
-  password: FormControl;
+interface SignUpForm{
+  name: FormControl; 
+  email: FormControl;  
+  password: FormControl; 
+  passwordConfirm: FormControl;
 }
 
-
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class SignUpComponent implements OnInit {
 
-  loginForm!: FormGroup<LoginForm>;
+  signUpForm!: FormGroup<SignUpForm>;
 
   constructor(private router: Router, private loginService: LoginService) {
-    this.loginForm = new FormGroup({
+    this.signUpForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(6)]),
+
     });
   }
 
@@ -30,7 +34,7 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
+    this.loginService.login(this.signUpForm.value.email, this.signUpForm.value.password).subscribe({
       next: () => Swal.mixin({
         toast: true,
         position: "top-end",
@@ -43,7 +47,7 @@ export class LoginComponent implements OnInit {
         }
       }).fire({
         icon: "success",
-        title: "Login realizado com sucesso!"
+        title: "Cadastro realizado com sucesso!"
       }),
       error: () => Swal.mixin({
         toast: true,
@@ -57,14 +61,14 @@ export class LoginComponent implements OnInit {
         }
       }).fire({
         icon: "error",
-        title: "Falha ao realizar login! Tente novamente."
+        title: "Falha ao realizar o seu cadastro! Tente novamente."
       })
 
     })
   }
 
   navigate() {
-    this.router.navigate(["signup"]);
+    this.router.navigate(["login"]);
   }
 
 }

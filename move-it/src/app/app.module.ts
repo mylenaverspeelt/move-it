@@ -9,6 +9,7 @@ import { InputComponent } from './components/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { SignUpComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutComponent,
     LoginComponent,
     InputComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

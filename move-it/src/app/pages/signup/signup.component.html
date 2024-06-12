@@ -1,0 +1,22 @@
+<app-layout title="Cadastre-se agora!" primaryBtnText="Confirmar cadastro" secondaryBtnText="Fazer Login" (submit)="submit()" (navigate)="navigate()" [disablePrimaryBtn]="!signUpForm.valid">
+    <form [formGroup]="signUpForm">
+        <app-input inputName="name" label="Seu nome" type="text" placeholder="Jonh Doe"
+            formControlName="name">
+            <img src="/assets/svg/envelope.svg" alt="envelope" >
+        </app-input>
+      
+        <app-input inputName="email" label="Email" type="email" placeholder="email@email.com"
+            formControlName="email">
+            <img src="/assets/svg/envelope.svg" alt="envelope" >
+        </app-input>
+
+        <app-input inputName="password" label="Digite sua senha" type="password" formControlName="password">
+            <img src=" /assets/svg/padlock.svg" alt="padlock" >
+        </app-input>
+
+        <app-input inputName="passwordConfirm" label="Confirme sua senha" type="password" formControlName="passwordConfirm">
+            <img src=" /assets/svg/padlock.svg" alt="padlock" >
+        </app-input>
+        
+    </form>
+</app-layout>
