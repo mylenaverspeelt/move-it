@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
   }
 
   submit() {
-    this.loginService.login(this.signUpForm.value.email, this.signUpForm.value.password).subscribe({
+    this.loginService.signup(this.signUpForm.value.name, this.signUpForm.value.email, this.signUpForm.value.password).subscribe({
       next: () => Swal.mixin({
         toast: true,
         position: "top-end",
