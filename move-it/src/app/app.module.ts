@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './pages/signup/signup.component';
+import { UserPageComponent } from './pages/user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SignUpComponent } from './pages/signup/signup.component';
     LayoutComponent,
     LoginComponent,
     InputComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
