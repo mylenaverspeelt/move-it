@@ -8,7 +8,7 @@ import { tap } from 'rxjs';
 })
 export class LoginService {
 
-  apiUrl: string = "http://ec2-18-188-17-199.us-east-2.compute.amazonaws.com:8080/auth"
+  apiUrl: string = "https://d11fdimi19l9zq.cloudfront.net"
 
   constructor(private httpClient: HttpClient) { }
 
