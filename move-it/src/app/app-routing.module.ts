@@ -5,17 +5,23 @@ import { SignUpComponent } from './pages/signup/signup.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { AuthGuard } from './services/auth-guard.service';
 
-const routes: Routes = [{
-  path: 'login',
-  component: LoginComponent
-}, {
-  path: 'signup',
-  component: SignUpComponent
-}, {
-  path: 'userpage',
-  component: UserPageComponent,
-  canActivate: [AuthGuard]
-}
+const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  }, {
+    path: 'signup',
+    component: SignUpComponent
+  }, {
+    path: 'userpage',
+    component: UserPageComponent,
+    canActivate: [AuthGuard]
+  }
 ]
 
 @NgModule({
