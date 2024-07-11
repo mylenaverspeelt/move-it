@@ -44,7 +44,11 @@ export class LoginComponent implements OnInit {
       }).fire({
         icon: "success",
         title: "Login realizado com sucesso!"
-      }),
+      }).then(
+        () => {
+          this.router.navigate(["userpage"]);
+        }
+      ),
       error: () => Swal.mixin({
         toast: true,
         position: "top-end",

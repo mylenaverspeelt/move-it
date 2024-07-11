@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import Swal from 'sweetalert2'
 
-interface SignUpForm{
-  name: FormControl; 
-  email: FormControl;  
-  password: FormControl; 
+interface SignUpForm {
+  name: FormControl;
+  email: FormControl;
+  password: FormControl;
   passwordConfirm: FormControl;
 }
 
@@ -35,35 +35,42 @@ export class SignUpComponent implements OnInit {
 
   submit() {
     this.loginService.signup(this.signUpForm.value.name, this.signUpForm.value.email, this.signUpForm.value.password).subscribe({
-      next: () => Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
-      }).fire({
-        icon: "success",
-        title: "Cadastro realizado com sucesso!"
-      }),
-      error: () => Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.onmouseenter = Swal.stopTimer;
-          toast.onmouseleave = Swal.resumeTimer;
-        }
-      }).fire({
-        icon: "error",
-        title: "Falha ao realizar o seu cadastro! Tente novamente."
-      })
-
+      next: () => {
+        Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        }).fire({
+          icon: "success",
+          title: "Cadastro realizado com sucesso!"
+        }).then(
+          () => {
+            this.router.navigate(["login"]);
+          }
+        )       
+      },
+      error: () => {
+        Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+          }
+        }).fire({
+          icon: "error",
+          title: "Falha ao realizar o seu cadastro! Tente novamente."
+        });
+      }
     })
   }
 
