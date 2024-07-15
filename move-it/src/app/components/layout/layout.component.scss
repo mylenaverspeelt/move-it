@@ -1,11 +1,18 @@
 @import "../../../styles/variables.scss";
 
+
+@media only screen and (max-width: 768px) {
+    .main-section {
+        display: none;
+    }
+}
+
 main {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100%;
+
 }
 
 section {
@@ -13,47 +20,44 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100%;
+
 }
 
 .main-section {
     gap: 8px;
-    width: 70%;
+    width: 100%;
     background-color: $background-gray;
+    height: 100vh;
 }
 
 .form-section {
     padding: 0 35px;
-    width: 30%;
-
-    img {
-        margin-bottom: 30px;
-    }
+    height: 100vh;
+    display: flex;
+    justify-content: space-evenly;
 
     h2 {
         font-size: 20px;
         font-weight: bold;
-        margin-bottom: 45px;
+
     }
 
     .btn-wrapper {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
-        gap: 30px;
+
 
         .divider {
             display: flex;
             font-size: 14px;
             align-items: center;
-            justify-content: center;
             color: $background-gray;
             font-weight: 400;
             width: 50%;
-            gap: 20px;
             text-transform: uppercase;
+            margin: 0 1rem;
+            gap: 0.5rem;
 
             div {
                 flex-grow: 1;
